@@ -40,6 +40,9 @@ export class SearchPokePage extends Component {
                     (value.type.name)
                 )
                 console.log(infoPoke)
+                this.setState({
+                    infoPoke
+                })
             }
         ).catch(
             ex => {
@@ -66,7 +69,7 @@ export class SearchPokePage extends Component {
                 }} height="150" src={require("../../images/pokebola.jpg")} />
                 <SearchPokeForm nome={this.state.nomePoke} onChange={this.onChange} onSubmit={this.onSubmit}/>
                 <hr/>
-                <Pokeinfo />
+                <Pokeinfo infoPoke={this.state.infoPoke}/>
             </Container>
         )
     }
