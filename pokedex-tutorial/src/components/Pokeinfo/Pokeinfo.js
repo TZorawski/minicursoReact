@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Image, Row, Col } from "react-bootstrap"
+import StatsRadar from "../../components/StatsRadar"
 
 export class Pokeinfo extends Component {
     render() {
@@ -13,12 +14,12 @@ export class Pokeinfo extends Component {
                         textAlign: "left"
                     }}> 
                         <h4> {this.props.infoPoke.nome} - {this.props.infoPoke.id} </h4>
-                        <p> Tipo: {this.props.infoPoke.tipo} </p>
+                        <p> Tipo: {this.props.infoPoke.tipo.join(", ")} </p>
                         <p> Peso: {this.props.infoPoke.pesoKG} kg </p>
                         <p> Altura: {this.props.infoPoke.alturaM} m </p>
                     </Col>
                     <Col>
-                    jaj
+                        <StatsRadar status={this.props.infoPoke.status} />
                     </Col>
                 </Row>
             </div>

@@ -4,12 +4,11 @@ import SearchPokeForm from '../../components/Form/SearchePokeForm';
 import { getPokeByName} from "../../utils/API"
 import Pokeinfo from "../../components/Pokeinfo"
 
+
 export class SearchPokePage extends Component {
     state = {
         nomePoke: "",
-        infoPoke: {
-
-        }
+        infoPoke: {}
     }
 
     onChange = (e) => {
@@ -69,7 +68,11 @@ export class SearchPokePage extends Component {
                 }} height="150" src={require("../../images/pokebola.jpg")} />
                 <SearchPokeForm nome={this.state.nomePoke} onChange={this.onChange} onSubmit={this.onSubmit}/>
                 <hr/>
-                <Pokeinfo infoPoke={this.state.infoPoke}/>
+                {
+                    Object.keys(this.state.infoPoke).length !== 0 &&
+                    <Pokeinfo infoPoke={this.state.infoPoke}/>
+                }
+                
             </Container>
         )
     }
